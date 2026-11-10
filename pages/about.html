@@ -79,7 +79,7 @@
     <main class="main-area">
       <header class="topbar">
         <div class="topbar-left">
-          <button class="icon-button mobile-menu" id="menuToggle" aria-label="Open navigation">
+          <button class="icon-button mobile-menu" id="menuToggle" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false">
             <i class="fa-solid fa-bars"></i>
           </button>
           <div>
@@ -406,24 +406,39 @@
     document.getElementById("currentYear").textContent =
       new Date().getFullYear();
 
+
     const menuToggle = document.getElementById("menuToggle");
     const sidebar = document.getElementById("sidebar");
 
-    if (menuToggle && sidebar) {
-      menuToggle.addEventListener("click", () => {
-        sidebar.classList.toggle("open");
-      });
-
-      document.addEventListener("click", event => {
-        if (
-          sidebar.classList.contains("open") &&
-          !sidebar.contains(event.target) &&
-          !menuToggle.contains(event.target)
-        ) {
-          sidebar.classList.remove("open");
-        }
-      });
+    function setMobileMenu(open) {
+      sidebar?.classList.toggle("open", open);
+      menuToggle?.setAttribute("aria-expanded", String(open));
+      menuToggle?.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
     }
+
+    menuToggle?.addEventListener("click", () => {
+      setMobileMenu(!sidebar?.classList.contains("open"));
+    });
+
+    sidebar?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setMobileMenu(false));
+    });
+
+    document.addEventListener("click", (event) => {
+      if (sidebar?.classList.contains("open") &&
+          !sidebar.contains(event.target) &&
+          !menuToggle?.contains(event.target)) {
+        setMobileMenu(false);
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && sidebar?.classList.contains("open")) {
+        setMobileMenu(false);
+        menuToggle?.focus();
+      }
+    });
+
   </script>
 </body>
 </html>
