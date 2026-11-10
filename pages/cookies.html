@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Cookies Policy for Sajha Seema, an independent civic information prototype.">
+  <title>Cookies Policy | Sajha Seema</title>
+
+  <link rel="stylesheet" href="../style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+  <div class="app-shell">
+
+    <aside class="sidebar">
+      <a href="../index.html" class="brand">
+        <span class="brand-mark"><i class="fa-solid fa-compass"></i></span>
+        <span>Sajha <strong>Seema</strong></span>
+      </a>
+
+      <nav class="sidebar-nav">
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Overview</a>
+        <a href="reports.html"><i class="fa-solid fa-file-lines"></i> Public Reports</a>
+        <a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a>
+        <a href="methodology.html"><i class="fa-solid fa-book-open"></i> Methodology</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <span class="status-dot"></span>
+        Independent civic information prototype
+      </div>
+    </aside>
+
+    <main class="main-content">
+
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="breadcrumb">
+          <span>Information</span>
+          <i class="fa-solid fa-chevron-right"></i>
+          <strong>Cookies Policy</strong>
+        </div>
+
+        <a href="../index.html" class="topbar-link">
+          <i class="fa-solid fa-arrow-left"></i> Home
+        </a>
+      </header>
+
+      <section class="page-section active">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">LEGAL & TRANSPARENCY</span>
+            <h1>Cookies Policy</h1>
+            <p>How cookies and similar technologies relate to this website.</p>
+          </div>
+        </div>
+
+        <article class="content-card">
+          <div class="policy-meta">
+            <span><i class="fa-regular fa-calendar"></i> Last updated: 10 November 2026</span>
+            <span><i class="fa-solid fa-shield-halved"></i> Independent prototype</span>
+          </div>
+
+          <h2>1. What are cookies?</h2>
+          <p>
+            Cookies are small text files that websites may store in a visitor's
+            browser. They can be used for functions such as remembering
+            preferences, maintaining sessions, and measuring website usage.
+          </p>
+
+          <h2>2. Cookies used by this prototype</h2>
+          <p>
+            The current Sajha Seema prototype does not intentionally set
+            first-party tracking or advertising cookies. It also does not
+            currently include an analytics service or advertising tracker.
+          </p>
+          <p>
+            This may change if future versions introduce features that require
+            cookies or similar technologies. Any such changes should be
+            reflected in this policy.
+          </p>
+
+          <h2>3. Third-party services</h2>
+          <p>
+            This website may load resources from external providers, including
+            Google Fonts and the Font Awesome content delivery network.
+            GitHub Pages also provides the website hosting.
+          </p>
+          <p>
+            When your browser requests resources from these providers, they
+            may receive technical information such as your IP address,
+            browser information, and request details. Their own privacy
+            policies and practices apply to those requests.
+          </p>
+
+          <h2>4. Browser settings</h2>
+          <p>
+            Most browsers allow you to review, block, or delete cookies through
+            their settings. Blocking cookies may affect features on some
+            websites, although the current prototype is not designed to
+            depend on first-party tracking cookies.
+          </p>
+
+          <h2>5. Local browser storage</h2>
+          <p>
+            Some websites use browser storage technologies such as
+            localStorage or sessionStorage to remember information.
+            The current prototype does not intentionally use persistent
+            browser storage to save submitted community reports.
+          </p>
+
+          <h2>6. Changes to this policy</h2>
+          <p>
+            This policy may be updated when website features or third-party
+            services change. The latest version will be published on this page.
+          </p>
+
+          <h2>7. Contact</h2>
+          <p>
+            For questions about this policy, visit the
+            <a href="https://github.com/Rijan0228/Sajha-Seema" target="_blank" rel="noopener noreferrer">
+              Sajha Seema GitHub repository
+            </a>.
+          </p>
+
+          <div class="notice-card">
+            <i class="fa-solid fa-circle-info"></i>
+            <div>
+              <strong>Important</strong>
+              <p>
+                Sajha Seema is an independent civic information prototype.
+                It is not an official Government of Nepal website or service.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <footer class="footer">
+          <span>© <span id="currentYear"></span> Sajha Seema</span>
+          <div class="footer-links">
+            <a href="privacy.html">Privacy</a>
+            <a href="cookies.html">Cookies</a>
+            <a href="terms.html">Terms</a>
+          </div>
+        </footer>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const sidebar = document.querySelector(".sidebar");
+
+    menuToggle?.addEventListener("click", () => {
+      sidebar?.classList.toggle("open");
+    });
+
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+
+    document.addEventListener("click", (event) => {
+      if (
+        sidebar &&
+        menuToggle &&
+        !sidebar.contains(event.target) &&
+        !menuToggle.contains(event.target)
+      ) {
+        sidebar.classList.remove("open");
+      }
+    });
+  </script>
+</body>
+</html>
