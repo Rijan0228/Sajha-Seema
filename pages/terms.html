@@ -4,43 +4,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b1020">
+  <meta name="theme-color" content="#071411">
   <meta name="description" content="Terms of Use for Sajha Seema, an independent civic information prototype.">
   <title>Terms of Use | Sajha Seema</title>
 
-  <link rel="stylesheet" href="../style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
   <div class="app-shell">
 
-    <aside class="sidebar">
-      <a href="../index.html" class="brand">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="../index.html">
         <span class="brand-mark"><i class="fa-solid fa-compass"></i></span>
-        <span>Sajha <strong>Seema</strong></span>
+        <span class="brand-copy">
+          <strong>Sajha Seema</strong>
+          <small>PUBLIC INFORMATION</small>
+        </span>
       </a>
 
-      <nav class="sidebar-nav">
-        <a href="../index.html"><i class="fa-solid fa-house"></i> Overview</a>
-        <a href="reports.html"><i class="fa-solid fa-file-lines"></i> Public Reports</a>
-        <a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a>
-        <a href="methodology.html"><i class="fa-solid fa-book-open"></i> Methodology</a>
+      <div class="sidebar-label">WORKSPACE</div>
+
+      <nav class="side-nav" aria-label="Main navigation">
+        <a class="nav-link" href="../index.html">
+          <i class="fa-solid fa-grid-2"></i><span>Overview</span>
+        </a>
+        <a class="nav-link" href="../index.html#map">
+          <i class="fa-solid fa-map"></i><span>National overview</span>
+        </a>
+        <a class="nav-link" href="reports.html">
+          <i class="fa-solid fa-file-lines"></i><span>Public reports</span>
+        </a>
+        <a class="nav-link" href="../index.html#submit">
+          <i class="fa-solid fa-circle-plus"></i><span>Submit a concern</span>
+        </a>
+        <a class="nav-link" href="../index.html#verification">
+          <i class="fa-solid fa-shield-halved"></i><span>Verification</span>
+        </a>
+        <a class="nav-link" href="../index.html#library">
+          <i class="fa-solid fa-book-open"></i><span>Information library</span>
+        </a>
+        <a class="nav-link" href="../index.html#analytics">
+          <i class="fa-solid fa-chart-line"></i><span>Analytics</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-label sidebar-label-bottom">INFORMATION</div>
+
+      <nav class="side-nav">
+        <a class="nav-link" href="about.html">
+          <i class="fa-solid fa-circle-info"></i><span>About the project</span>
+        </a>
+        <a class="nav-link" href="methodology.html">
+          <i class="fa-solid fa-list-check"></i><span>Methodology</span>
+        </a>
       </nav>
 
       <div class="sidebar-bottom">
-        <span class="status-dot"></span>
-        Independent civic information prototype
+        <div class="sidebar-status">
+          <span class="status-dot"></span>
+          <span>Prototype environment</span>
+        </div>
+        <p>Independent civic-tech demonstration. Not an official government service.</p>
+        <span class="version">VERSION 1.0.0</span>
       </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main-area">
 
       <header class="topbar">
-        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">
+        <button class="icon-button mobile-menu" id="menuToggle" aria-label="Open navigation">
           <i class="fa-solid fa-bars"></i>
         </button>
 
@@ -64,7 +102,7 @@
           </div>
         </div>
 
-        <article class="content-card">
+        <article class="panel policy-panel">
           <div class="policy-meta">
             <span><i class="fa-regular fa-calendar"></i> Last updated: 10 November 2026</span>
             <span><i class="fa-solid fa-shield-halved"></i> Independent prototype</span>
