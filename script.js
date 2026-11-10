@@ -42,7 +42,8 @@ function showPage(pageId, updateHash = true) {
   });
 
   navLinks.forEach((link) => {
-    const linkPage = link.getAttribute("href").replace("#", "");
+    const href = link.getAttribute("href") || "";
+    const linkPage = href.startsWith("#") ? href.slice(1) : "";
     link.classList.toggle("active", linkPage === pageId);
   });
 
@@ -54,14 +55,19 @@ function showPage(pageId, updateHash = true) {
     history.pushState(null, "", `#${pageId}`);
   }
 
-  sidebar.classList.remove("open");
+  setMobileMenu(false);
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 navLinks.forEach((link) => {
+  const href = link.getAttribute("href") || "";
+
+  // Only intercept in-page section links. Separate HTML pages must navigate normally.
+  if (!href.startsWith("#")) return;
+
   link.addEventListener("click", (event) => {
     event.preventDefault();
-    const pageId = link.getAttribute("href").slice(1);
+    const pageId = href.slice(1);
     showPage(pageId);
   });
 });
@@ -98,10 +104,16 @@ if (initialPage && pageNames[initialPage]) {
 const menuToggle = $("#menuToggle");
 
 function setMobileMenu(open) {
+  if (!sidebar || !menuToggle) return;
   sidebar.classList.toggle("open", open);
   menuToggle.setAttribute("aria-expanded", String(open));
   menuToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+  document.body.classList.toggle("menu-open", open && window.innerWidth <= 850);
 }
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 850) setMobileMenu(false);
+});
 
 menuToggle.addEventListener("click", () => {
   setMobileMenu(!sidebar.classList.contains("open"));
