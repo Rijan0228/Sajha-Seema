@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="../style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
 
 <body>
@@ -216,7 +216,12 @@
       sidebar?.classList.toggle("open", open);
       menuToggle?.setAttribute("aria-expanded", String(open));
       menuToggle?.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+      document.body.classList.toggle("menu-open", open && window.innerWidth <= 850);
     }
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 850) setMobileMenu(false);
+    });
 
     menuToggle?.addEventListener("click", () => {
       setMobileMenu(!sidebar?.classList.contains("open"));
