@@ -522,3 +522,29 @@ button { cursor: pointer; }
   .values-grid { grid-template-columns: 1fr; }
   .verification-steps { grid-template-columns: 1fr; }
 }
+
+
+/* Accessibility and small-screen finishing touches */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--green, #72d69a);
+  outline-offset: 3px;
+}
+@media (max-width: 850px) {
+  body.menu-open { overflow: hidden; }
+  .sidebar { padding-bottom: max(22px, env(safe-area-inset-bottom)); }
+  .mobile-menu { min-width: 42px; min-height: 42px; }
+}
+@media (max-width: 600px) {
+  .policy-panel p, .policy-panel li { font-size: 11px; line-height: 1.8; }
+  .footer > p, .footer-bottom { font-size: 10px; line-height: 1.6; }
+  .footer-links { row-gap: 12px; }
+  .table-wrap { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
