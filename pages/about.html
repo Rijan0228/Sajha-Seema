@@ -414,7 +414,12 @@
       sidebar?.classList.toggle("open", open);
       menuToggle?.setAttribute("aria-expanded", String(open));
       menuToggle?.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+      document.body.classList.toggle("menu-open", open && window.innerWidth <= 850);
     }
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 850) setMobileMenu(false);
+    });
 
     menuToggle?.addEventListener("click", () => {
       setMobileMenu(!sidebar?.classList.contains("open"));
